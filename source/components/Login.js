@@ -3,8 +3,36 @@ import {Text, TextInput, TouchableOpacity, View, Image} from 'react-native';
 import styles from './styleLogin';
 import fb from '../assets/fb.png';
 import google from '../assets/google.png';
+import eyeClose from '../assets/eyeClosed.png';
+import eyeOpen from '../assets/eyeOpened.png';
 
 export class Login extends Component {
+  constructor() {
+    super();
+    this.state = {
+      status: true,
+      email: '',
+      pass: '',
+      dataEmail: 'fmradiant@gmail.com',
+      dataPass: '123',
+    };
+  }
+
+  masuk = () => {
+    if (
+      this.state.email == this.state.dataEmail &&
+      this.state.pass == this.state.dataPass
+    ) {
+      this.props.navigation.replace('Home');
+    } else {
+      alert('Data salah!');
+    }
+  };
+
+  lihat = () => {
+    this.setState({status: !this.state.status});
+  };
+
   render() {
     return (
       <View style={styles.mainView}>
@@ -14,7 +42,10 @@ export class Login extends Component {
           <TouchableOpacity>
             <View style={styles.viewInput}>
               <View style={styles.subViewInput}>
-                <TextInput placeholder="youremail@example.com" />
+                <TextInput
+                  placeholder="youremail@example.com"
+                  onChangeText={(kata) => this.setState({email: kata})}
+                />
               </View>
             </View>
           </TouchableOpacity>
@@ -22,7 +53,11 @@ export class Login extends Component {
           <TouchableOpacity>
             <View style={styles.viewInput}>
               <View style={styles.subViewInput}>
-                <TextInput placeholder="Your_Password" />
+                <TextInput
+                  secureTextEntry={true}
+                  placeholder="Your_Password"
+                  onChangeText={(kata) => this.setState({pass: kata})}
+                />
               </View>
             </View>
           </TouchableOpacity>

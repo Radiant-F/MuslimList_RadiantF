@@ -1,10 +1,14 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View, Text, ViewPropTypes, ImageBackground} from 'react-native';
+import styles from './styleDrawer';
+import bg from '../assets/bg.jpg';
 
 function DrawerContent() {
   return (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <Text>reeeee</Text>
+    <View>
+      <ImageBackground source={bg} style={styles.imgBg} blurRadius={5}>
+        <Text>Halooo</Text>
+      </ImageBackground>
     </View>
   );
 }
