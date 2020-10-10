@@ -85,4 +85,21 @@ export default StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
+  viewFloat: {
+    position: 'absolute',
+    backgroundColor: 'green',
+    opacity: 0.5,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+    right: 20,
+    bottom: 20,
+  },
+  textFloat: {
+    fontSize: 30,
+    fontWeight: 'bold',
+    color: 'white',
+  },
 });

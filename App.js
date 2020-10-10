@@ -11,7 +11,7 @@ import Navigator from './source/components/Navigator';
 
 export class App extends Component {
   render() {
-    return <Navigator />;
+    return <SplashScreen />;
   }
 }
 
