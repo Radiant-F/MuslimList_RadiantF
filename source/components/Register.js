@@ -14,10 +14,18 @@ import fb from '../assets/fb.png';
 import google from '../assets/google.png';
 import flag from '../assets/indoflag.png';
 import eyeOpened from '../assets/eyeOpened.png';
+import eyeClosed from '../assets/eyeClosed.png';
 import back from '../assets/back.png';
 import styleLogin from './styleLogin';
 
 export class Register extends Component {
+  constructor() {
+    super();
+    this.state = {
+      status: true,
+    };
+  }
+
   render() {
     return (
       <View style={styles.mainView}>
@@ -61,9 +69,19 @@ export class Register extends Component {
                 <View style={styles.subViewPass}>
                   <TextInput
                     placeholder="your_Password"
-                    secureTextEntry={true}
+                    secureTextEntry={this.state.status}
                     style={styles.textInput}></TextInput>
-                  <Image source={eyeOpened} style={styles.eye} />
+                  <TouchableOpacity
+                    onPress={() => this.setState({status: !this.state.status})}>
+                    <Image
+                      source={
+                        this.state.status
+                          ? require('../assets/eyeOpened.png')
+                          : require('../assets/eyeClosed.png')
+                      }
+                      style={styles.eye}
+                    />
+                  </TouchableOpacity>
                 </View>
               </View>
             </View>

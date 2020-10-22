@@ -92,8 +92,7 @@ export class Login extends Component {
           </View>
           <View style={styles.subView2}>
             <Text style={styles.subText3}>Don't have any account?</Text>
-            <TouchableOpacity
-              onPress={() => this.props.navigation.navigate('Register')}>
+            <TouchableOpacity>
               <Text style={styles.subText4}>Sign Up</Text>
             </TouchableOpacity>
           </View>

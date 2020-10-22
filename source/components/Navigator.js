@@ -4,54 +4,28 @@ import {createStackNavigator} from '@react-navigation/stack';
 import {createDrawerNavigator} from '@react-navigation/drawer';
 import Intro from './Intro';
 import Login from './Login';
-import Register from './Register';
-import ResetPassword from './ResetPassword';
 import Home from './Home';
-import DrawerContent from './Drawer';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 
 const RootDrawer = () => {
   return (
-    <Drawer.Navigator drawerContent={() => <DrawerContent />}>
+    <Drawer.Navigator>
       <Drawer.Screen name="Home" component={Home} />
     </Drawer.Navigator>
   );
 };
 
-const Navigator = () => {
+const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Intro"
-          component={Intro}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Home"
-          component={RootDrawer}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="Register"
-          component={Register}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name="ResetPassword"
-          component={ResetPassword}
-          options={{headerShown: false}}
-        />
+      <Stack.Navigator headerMode={false}>
+        <Stack.Screen name="Intro" component={Intro} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Home" component={RootDrawer} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
-
-export default Navigator;
+export default Navigation;

@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {ActivityIndicator, Image, Text, View} from 'react-native';
 import list from '../assets/list.png';
-import Navigator from './Navigator';
+import Intro from './Intro';
+import Navigation from './Navigator';
+import Login from './Login';
 
 export class SplashScreen extends Component {
   constructor() {
@@ -35,7 +37,7 @@ export class SplashScreen extends Component {
         </View>
       );
     } else {
-      return <Navigator />;
+      return <Navigation />;
     }
   }
 }
